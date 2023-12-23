@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from "./src/screens/homeScreen";
-import LoginScreen from "./src/screens/loginScreen";
-import SplashScreen from "./src/screens/splashScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+import SplashScreen from "./src/screens/SplashScreen";
+import LibraryScreen from "./src/screens/LibraryScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,9 +15,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        
+        <Stack.Screen name="Library" component={LibraryScreen} options={{headerShown: false}} />
         <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

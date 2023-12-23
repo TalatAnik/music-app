@@ -11,10 +11,7 @@ const SplashScreen = () => {
         source={require('../../assets/mainBG.png')}
         resizeMode="cover"
       >
-        <StatusBar
-          animated={true}
-          backgroundColor="#4C4786"        
-        />
+        
 
         <Image
           style={style.logoImage}

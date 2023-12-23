@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, SafeAreaView, View, Text, Button } from 'react-native';
-import HomeScreen from './homeScreen';
-import type {StatusBarStyle} from 'react-native';
+import HomeScreen from './HomeScreen';
+
 
 const LoginScreen = (props: any ) => {
 
