@@ -9,7 +9,7 @@ type item = {
   artist: string
 }
 
-const SingleItem = (props: {item: item}) => {
+const SingleHorizontalItem = (props: {item: item}) => {
 
   return (
 
@@ -85,4 +85,4 @@ const style = StyleSheet.create({
   }
 })
 
-export default SingleItem;
+export default SingleHorizontalItem;
