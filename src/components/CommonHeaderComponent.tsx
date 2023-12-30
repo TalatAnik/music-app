@@ -1,6 +1,7 @@
 import React from 'react';
 import {  Text, StyleSheet, View} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { rgbaColor } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 
 
 
@@ -25,7 +26,7 @@ const CommonHeader = (props: HeaderProps)=> {
 
 const style = StyleSheet.create({
   headerBar: {
-    marginTop: 40,
+    paddingTop:20,
     paddingBottom: 20,
     width: '100%',
     flexDirection: 'row',
@@ -34,6 +35,7 @@ const style = StyleSheet.create({
     left: 0,
     right: 0,
     borderBottomWidth: 0.1,
+    backgroundColor: 'rgba(141,45,45,0.9)',
     borderBottomColor: 'white',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10

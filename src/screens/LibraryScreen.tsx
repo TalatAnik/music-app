@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, SafeAreaView, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+import { ImageBackground, StatusBar, Image, StyleSheet, View, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import CommonHeader from '../components/CommonHeaderComponent';
@@ -22,7 +22,7 @@ const newReleases = [
     artist: 'Miles'
   },
   {
-    albumArtUri: null,
+    albumArtUri: '',
     title: 'Ferari Mon',
     artist: 'Miles'
   }
@@ -42,14 +42,20 @@ const LibraryScreen = (props: any) => {
       resizeMode="cover"
       >
         
-        <ScrollView style={style.mainScrollView}>
+        <ScrollView 
+          style={style.mainScrollView}
+          stickyHeaderIndices={[0, 1]}
+        >
+          <StatusBar backgroundColor="#8D2D2D" barStyle="dark-content" />
 
           <CommonHeader title='Library' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
-
+          
           <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
 
-          
-          
+          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
+          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
+          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
+          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
 
         </ScrollView>
         
@@ -64,7 +70,6 @@ const style = StyleSheet.create({
     margin: 0,
     padding: 0,
     flex: 1,
-    backgroundColor: '#523B54',
     width: '100%'
   },
   mainScrollView: {
