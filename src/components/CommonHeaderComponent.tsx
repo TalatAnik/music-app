@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Text, StyleSheet, View} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { rgbaColor } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
+
 
 
 

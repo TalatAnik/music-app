@@ -1,9 +1,10 @@
 import React from 'react';
-import { ImageBackground, StatusBar, Image, StyleSheet, View, ScrollView } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { ImageBackground, StatusBar, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+
 
 import CommonHeader from '../components/CommonHeaderComponent';
 import HorizontalCardsArray from '../components/HorizontalCardsArrayComponent';
+import SingleItem from '../components/SingleItemComponent';
 
 const newReleases = [
   {
@@ -44,18 +45,26 @@ const LibraryScreen = (props: any) => {
         
         <ScrollView 
           style={style.mainScrollView}
-          stickyHeaderIndices={[0, 1]}
+          // stickyHeaderIndices={[0, 1]}
         >
           <StatusBar backgroundColor="#8D2D2D" barStyle="dark-content" />
 
           <CommonHeader title='Library' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
           
           <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
+          
+          <View style={style.verticalCards}>
+            <Text style={style.verticalCardsHeader}>
+              Artists You May Like
+            </Text>
 
-          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
-          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
-          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
-          <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
+            {
+              newReleases.map((item)=>(
+                <SingleItem key={item.title} item={item}></SingleItem>
+              ))
+            }
+          </View>
+          
 
         </ScrollView>
         
@@ -82,7 +91,18 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   
+  verticalCards: {
+    margin: 20
+  },
 
+  verticalCardsHeader: {
+    color: "#fff",
+    fontSize: 20,
+    marginBottom: 30,
+    fontWeight: 'bold'
+  },
+  
+  
 })
 
 export default LibraryScreen;
