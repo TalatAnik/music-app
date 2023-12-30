@@ -3,6 +3,7 @@ import { FlatList, Text, Image, StyleSheet, View, ImageBackground } from 'react-
 
 
 import CommonHeader from '../components/CommonHeaderComponent';
+import SingleCardItem from '../components/SingleCardComponent';
 
     
 const mySongs = [
@@ -59,51 +60,65 @@ const mySongs = [
     albumArtUri: '',
     title: 'Ferari Mon',
     artist: 'Miles'
+  },
+  {
+    id: 9,
+    albumArtUri: 'https://www.premadepixels.com/wp-content/uploads/2021/12/Portal-Album-Cover-PP1.jpg',
+    title: 'Ek Nodi Jamuna',
+    artist: 'James'
+  },
+  {
+    id: 10,
+    albumArtUri: 'https://www.premadepixels.com/wp-content/uploads/2022/06/Portal-2-Album-Cover-PP1.jpg',
+    title: 'Onneshon',
+    artist: 'Nemesis'
+  },
+  {
+    id: 11,
+    albumArtUri: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/911f6fac-f50e-4d62-84a3-95462966314e/dckx8jk-f25a659a-1949-48c8-9604-45406c8ded50.jpg/v1/fill/w_894,h_894,q_70,strp/album_cover_design_for_ambient_band__free__by_incantatorexv_dckx8jk-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzkxMWY2ZmFjLWY1MGUtNGQ2Mi04NGEzLTk1NDYyOTY2MzE0ZVwvZGNreDhqay1mMjVhNjU5YS0xOTQ5LTQ4YzgtOTYwNC00NTQwNmM4ZGVkNTAuanBnIiwiaGVpZ2h0IjoiPD0xMDI0Iiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvOTExZjZmYWMtZjUwZS00ZDYyLTg0YTMtOTU0NjI5NjYzMTRlXC9pbmNhbnRhdG9yZXh2LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.bGBjWlagapMxIpczc1M2-VN_8bd1PlSYYmQBNeULRRE',
+    title: 'Firiye Dao',
+    artist: 'Miles'
+  },
+  {
+    id: 12,
+    albumArtUri: 'https://www.premadepixels.com/wp-content/uploads/2022/06/Portal-2-Album-Cover-PP1.jpg',
+    title: 'Onneshon',
+    artist: 'Nemesis'
+  },
+  {
+    id: 13,
+    albumArtUri: '',
+    title: 'Ferari Mon',
+    artist: 'Miles'
+  },
+  {
+    id: 14,
+    albumArtUri: 'https://www.premadepixels.com/wp-content/uploads/2021/12/Portal-Album-Cover-PP1.jpg',
+    title: 'Ek Nodi Jamuna',
+    artist: 'James'
+  },
+  {
+    id: 15,
+    albumArtUri: 'https://www.premadepixels.com/wp-content/uploads/2022/06/Portal-2-Album-Cover-PP1.jpg',
+    title: 'Onneshon',
+    artist: 'Nemesis'
+  },
+  {
+    id: 16,
+    albumArtUri: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/911f6fac-f50e-4d62-84a3-95462966314e/dckx8jk-f25a659a-1949-48c8-9604-45406c8ded50.jpg/v1/fill/w_894,h_894,q_70,strp/album_cover_design_for_ambient_band__free__by_incantatorexv_dckx8jk-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzkxMWY2ZmFjLWY1MGUtNGQ2Mi04NGEzLTk1NDYyOTY2MzE0ZVwvZGNreDhqay1mMjVhNjU5YS0xOTQ5LTQ4YzgtOTYwNC00NTQwNmM4ZGVkNTAuanBnIiwiaGVpZ2h0IjoiPD0xMDI0Iiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvOTExZjZmYWMtZjUwZS00ZDYyLTg0YTMtOTU0NjI5NjYzMTRlXC9pbmNhbnRhdG9yZXh2LTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.bGBjWlagapMxIpczc1M2-VN_8bd1PlSYYmQBNeULRRE',
+    title: 'Firiye Dao',
+    artist: 'Miles'
+  },
+  {
+    id: 17,
+    albumArtUri: '',
+    title: 'Ferari Mon',
+    artist: 'Miles'
   }
 ]
 
 
-type ItemProps = {
-  id: number,
-  albumArtUri: string,
-  title: string,
-  artist: string
-}
 
-
-const Item  = (props: {Song: ItemProps}) => {
-  return (
-
-    <View style={style.singleCard}>
-      {
-        (props.Song.albumArtUri)?(
-          <Image
-            source={{uri: props.Song.albumArtUri}}
-            style = {style.cardImage}
-          />
-        ):(
-          <Image
-            source={require('../../assets/icon.png')}
-            style = {style.cardImage}                  
-          />
-        )
-      }
-
-      <Text style={style.cardTitle}>
-        {props.Song.title}
-      </Text>
-      <Text style={style.cardArtist}>
-        {props.Song.artist}
-      </Text>
-
-
-    </View>
-      
-    
-    
-    
-  )
-}
 
 const LibraryScreen = (props: any) => {
   
@@ -128,16 +143,17 @@ const LibraryScreen = (props: any) => {
       resizeMode="cover"
       >
         <View style={style.stickyHeader}>
-          <CommonHeader title='Home' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
+          <CommonHeader title='Library' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
         </View>
 
         <FlatList
           style={style.mainList}
           data={mySongs}
-          renderItem={({item}) => <Item Song={item} />}
+          renderItem={({item}) => <SingleCardItem Song={item} />}
           keyExtractor={item => item.id.toString()}
           horizontal={false}
           numColumns={3}
+          columnWrapperStyle={{flexWrap: 'wrap'}}
         />
 
         
@@ -174,29 +190,10 @@ const style = StyleSheet.create({
   },
   mainList:{
     marginTop: 100,
-    width: '100%',
-    
-  },
-
-  singleCard: {
-    margin: 10
-  },
-
-  cardImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 15
-  },
-  cardTitle:  {
-    marginTop: 5,
-    color: 'white',
-    fontSize:12
-  },
-  cardArtist:  {
-    color: 'white',
-    fontSize:12,
-    fontWeight: '800'
+    width: '100%'
   }
+
+  
   
 })
 

@@ -26,8 +26,8 @@ const CommonHeader = (props: HeaderProps)=> {
 
 const style = StyleSheet.create({
   headerBar: {
-    paddingTop:20,
-    paddingBottom: 20,
+    paddingTop:25,
+    paddingBottom: 5,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
