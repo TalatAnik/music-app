@@ -45,7 +45,7 @@ const LibraryScreen = (props: any) => {
         
         <ScrollView 
           style={style.mainScrollView}
-          // stickyHeaderIndices={[0, 1]}
+          stickyHeaderIndices={[0, 1]}
         >
           <StatusBar backgroundColor="#8D2D2D" barStyle="dark-content" />
 
@@ -56,6 +56,19 @@ const LibraryScreen = (props: any) => {
           <View style={style.verticalCards}>
             <Text style={style.verticalCardsHeader}>
               Artists You May Like
+            </Text>
+
+            {
+              newReleases.map((item)=>(
+                <SingleItem key={item.title} item={item}></SingleItem>
+              ))
+            }
+          </View>
+
+
+          <View style={style.verticalCards}>
+            <Text style={style.verticalCardsHeader}>
+              Previously Listened To
             </Text>
 
             {
@@ -92,7 +105,11 @@ const style = StyleSheet.create({
   },
   
   verticalCards: {
-    margin: 20
+    margin: 15,
+    borderBottomColor: 'white',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderBottomWidth: 0.1,
   },
 
   verticalCardsHeader: {
