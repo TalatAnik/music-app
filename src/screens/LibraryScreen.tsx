@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
+import { FlatList, StyleSheet, View, ImageBackground } from 'react-native';
 
 
 import CommonHeader from '../components/CommonHeaderComponent';

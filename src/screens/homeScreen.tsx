@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StatusBar, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+import { ImageBackground, StatusBar, Text, StyleSheet, View, ScrollView } from 'react-native';
 import CommonHeader from '../components/CommonHeaderComponent';
 import HorizontalCardsArray from '../components/HorizontalCardsArrayComponent';
 import SingleHorizontalItem from '../components/SingleItemComponent';
