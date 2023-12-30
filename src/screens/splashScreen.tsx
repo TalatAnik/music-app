@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageBackground, StatusBar, SafeAreaView, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { ImageBackground, StatusBar, SafeAreaView, Text, Image, StyleSheet, Pressable, View } from 'react-native';
 
 
 const SplashScreen = () => {
 
   return (
-    <SafeAreaView style={style.mainContainer}>
+    <View style={style.mainContainer}>
       <ImageBackground
         style={style.mainBg}
         source={require('../../assets/mainBG.png')}
@@ -28,7 +28,7 @@ const SplashScreen = () => {
           <Text style={style.text}>Log In</Text>
         </Pressable>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   )
 
 }

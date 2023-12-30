@@ -8,22 +8,24 @@ const LibraryScreen = (props: any) => {
 
 
   return (
-    <SafeAreaView style={style.mainContainer}>
+    <View style={style.mainContainer}>
       <ImageBackground
       style={style.mainBg}
       source={require('../../assets/mainBG.png')}
       resizeMode="cover"
       >
         
-        <ScrollView style={style.mainScrolView}>
+        <ScrollView style={style.mainScrollView}>
 
           <CommonHeader title='Library' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
+
+          
           
 
         </ScrollView>
         
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -36,7 +38,7 @@ const style = StyleSheet.create({
     backgroundColor: '#523B54',
     width: '100%'
   },
-  mainScrolView: {
+  mainScrollView: {
     width: '100%'
   },
 
@@ -44,7 +46,9 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  }  
+  },
+  
+
 })
 
 export default LibraryScreen;
