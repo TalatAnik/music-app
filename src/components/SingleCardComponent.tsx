@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FlatList, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
+import React from 'react';
+import { Text, Image, StyleSheet, View } from 'react-native';
 
 
 type ItemProps = {
