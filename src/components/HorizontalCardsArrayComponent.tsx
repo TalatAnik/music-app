@@ -15,18 +15,29 @@ const HorizontalCardsArray = (props: {title: string, items: SingleItem[] }) => {
         {props.title}
       </Text>
 
-      <ScrollView style = {style.cardsHorizontal} horizontal={true} >
+      <ScrollView style = {style.cardsHorizontal} horizontal={true} showsHorizontalScrollIndicator={false} >
 
 
         {
           props.items.map((SingleItem) => (
 
             <View key={SingleItem.title} style = {style.cardSingle}>
-              <Image                
-                source={{uri: SingleItem.albumArtUri}}
-                style = {style.cardImage}
-              >                    
-              </Image>
+              {
+                SingleItem.albumArtUri?(
+                  <Image                
+                    source={{uri: SingleItem.albumArtUri}}
+                    style = {style.cardImage}
+                  /> 
+                ): (
+                  <Image
+                    source={require('../../assets/logo.png')}
+                    style = {style.cardImage}                  
+                  />
+                )
+              }
+
+                                 
+              
 
               <Text style = {style.cardMainText}>
                 {SingleItem.title}
@@ -57,6 +68,10 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     marginStart: 10,
     marginTop: 20,
+    borderBottomWidth: 0.1,
+    borderBottomColor: 'white',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10
     
   },
 
