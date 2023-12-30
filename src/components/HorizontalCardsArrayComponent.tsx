@@ -7,23 +7,19 @@ type SingleItem = {
   artist: string
 }
 
-type HorziontalCardsProps = {
-  mainTitle: string,
-  Items: SingleItem[]
-}
 
-const HorizontalCardsArray = (props: HorziontalCardsProps) => {
+const HorizontalCardsArray = (props: {title: string, items: SingleItem[] }) => {
   return (
     <View style={style.newReleasesView}>
       <Text style={style.horizontalCardHeader}>
-        {props.mainTitle}
+        {props.title}
       </Text>
 
       <ScrollView style = {style.cardsHorizontal} horizontal={true} >
 
 
         {
-          props.Items.map((SingleItem) => (
+          props.items.map((SingleItem) => (
 
             <View key={SingleItem.title} style = {style.cardSingle}>
               <Image                
@@ -60,13 +56,14 @@ const style = StyleSheet.create({
     flex:1,
     justifyContent: 'center',
     marginStart: 10,
-    marginTop: 10,
+    marginTop: 20,
     
   },
 
   horizontalCardHeader: {
     color: "#fff",
     fontSize: 20,
+    marginBottom: 10,
     fontWeight: 'bold'
   },
 
@@ -90,8 +87,9 @@ const style = StyleSheet.create({
 
   cardMainText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 12,
     marginTop: 15,
+    marginLeft: 5,
     flexShrink:1,
     flexWrap: 'nowrap',
     height: 20
@@ -99,10 +97,13 @@ const style = StyleSheet.create({
 
   cardSubText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     flexShrink:1,
     flexWrap: 'nowrap',
-    height: 20
+    height: 20,
+    marginLeft: 5,
   }
 })
+
+export default HorizontalCardsArray;
