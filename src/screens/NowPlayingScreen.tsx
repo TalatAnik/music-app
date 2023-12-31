@@ -1,13 +1,35 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, View, Text, Image, ImageBackground, StatusBar } from "react-native";
 import {Slider} from '@miblanchard/react-native-slider';
+import TrackPlayer, { State, PlaybackState, usePlaybackState } from "react-native-track-player";
 
 import { AntDesign } from '@expo/vector-icons';  
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 
+
+
+const setup = async ()=> {
+  await TrackPlayer.setupPlayer()
+  await TrackPlayer.add(songs)
+
+}
+
+const togglePlayback = async (PlaybackState: PlaybackState | {state:undefined}) => {
+
+  const currentState:any = await TrackPlayer.getPlaybackState()
+  if(currentState !== null) {
+    if ( currentState == State.Paused) {
+      await TrackPlayer.play()
+    } else {
+      await TrackPlayer.pause()
+    }
+  }
+}
+
 const MusicPlayer = ()=> {
+  const playbackState  = usePlaybackState()
 
   return (
 
@@ -83,7 +105,7 @@ const MusicPlayer = ()=> {
               <AntDesign name="stepbackward" size={30} color="#FFFF8A" />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={ ()=> togglePlayback(playbackState)}>
               <AntDesign name="play" size={42} color="#FFFF8A" />
             </TouchableOpacity>
 

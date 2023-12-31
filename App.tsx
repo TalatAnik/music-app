@@ -5,6 +5,8 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import TrackPlayer from "react-native-track-player";
+
 import HomeScreen from "./src/screens/HomeScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import LibraryScreen from "./src/screens/LibraryScreen";
@@ -12,7 +14,12 @@ import MusicPlayer from "./src/screens/NowPlayingScreen";
 
 const Stack = createStackNavigator();
 
+
+
 const App = () => {
+  TrackPlayer.registerPlaybackService(() => require('./service'));
+
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>
