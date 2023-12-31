@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from "./src/screens/HomeScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import LibraryScreen from "./src/screens/LibraryScreen";
+import MusicPlayer from "./src/screens/NowPlayingScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Player" component={MusicPlayer} options={{headerShown: false}} />
         
         <Stack.Screen name="Library" component={LibraryScreen} options={{headerShown: false}} /> 
                

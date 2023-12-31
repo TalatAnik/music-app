@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ImageBackground, StatusBar, Text, StyleSheet, View, ScrollView } from 'react-native';
 import CommonHeader from '../components/CommonHeaderComponent';
 import HorizontalCardsArray from '../components/HorizontalCardsArrayComponent';
 import SingleHorizontalItem from '../components/SingleItemComponent';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const newReleases = [
@@ -29,21 +30,41 @@ const newReleases = [
 ]
 
 const HomeScreen = (props: any) => {
+  const [isHeaderSticky, setIsHeaderSticky] = useState(false)  
+
+  const handleScroll = (event: any) => {
+    const offsetY = event.nativeEvent.contentOffset.y;
+    // You can adjust the threshold value based on your needs
+    const threshold = 50;
+
+    setIsHeaderSticky(offsetY > threshold);
+  };
+
+
   return (
-    <View style={style.mainContainer}>
+    <SafeAreaView style={style.mainContainer}>
+      <StatusBar 
+        barStyle={"light-content"} 
+        animated={true}
+        backgroundColor="#8D2D2D"  
+      />
       <ImageBackground
       style={style.mainBg}
       source={require('../../assets/mainBG.png')}
       resizeMode="cover"
       >
+
+        <View style={style.stickyHeader}>
+          <CommonHeader title='Home' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
+        </View>
         
         <ScrollView 
           style={style.mainScrollView}
           stickyHeaderIndices={[0, 1]}
         >
-          <StatusBar backgroundColor="#8D2D2D" barStyle="dark-content" />
+          
 
-          <CommonHeader title='Home' searchAction={() => props.navigation.navigate('Home')}></CommonHeader>
+          
           
           <HorizontalCardsArray title='New Releases' items= {newReleases}></HorizontalCardsArray>
           
@@ -66,7 +87,7 @@ const HomeScreen = (props: any) => {
         </ScrollView>
         
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   )
     
 }
@@ -81,7 +102,8 @@ const style = StyleSheet.create({
     width: '100%'
   },
   mainScrollView: {
-    width: '100%'
+    width: '100%',
+    marginTop: 80
   },
 
   mainBg: {
@@ -103,6 +125,13 @@ const style = StyleSheet.create({
     fontSize: 20,
     marginBottom: 30,
     fontWeight: 'bold'
+  },
+  stickyHeader: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1, // Ensure the header is above the regular content
   },
   
   

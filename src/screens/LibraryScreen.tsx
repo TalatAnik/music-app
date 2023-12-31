@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, View, ImageBackground } from 'react-native';
+import { FlatList, StyleSheet, View, ImageBackground, StatusBar } from 'react-native';
 
 
 import CommonHeader from '../components/CommonHeaderComponent';
@@ -137,6 +137,11 @@ const LibraryScreen = (props: any) => {
   return (
 
     <View style={style.mainContainer}>
+      <StatusBar 
+        barStyle={"light-content"} 
+        animated={true}
+        backgroundColor="#8D2D2D"  
+      />
       <ImageBackground
       style={style.mainBg}
       source={require('../../assets/mainBG.png')}
