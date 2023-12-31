@@ -34,6 +34,8 @@ const MusicPlayer = ()=> {
             <Text style={style.songArtist}>Artist Name</Text>
           </View>
 
+          
+
           <View style={style.socialButtons}>
             <TouchableOpacity>
               <Ionicons name="add-circle-outline" size={26} color="white" />
@@ -62,6 +64,11 @@ const MusicPlayer = ()=> {
             />
 
             
+          </View>
+
+          <View style={style.songTimes}>
+            <Text style={style.songTimePlayed}>0.30</Text>
+            <Text style={style.songTimeRemaining}>3.30</Text>
           </View>
 
           
@@ -142,6 +149,18 @@ const style = StyleSheet.create({
   minTrack: {
     backgroundColor: '#D1D100'
   },
+  songTimes: {
+    flexDirection: 'row',
+    width: '85%',
+    justifyContent: 'space-between'
+  },
+  songTimePlayed: {
+    color: 'white'
+  },
+  songTimeRemaining: {
+    color: 'white'
+  },
+
   controls: {
     width: '90%',
     marginTop: 20,
@@ -153,7 +172,7 @@ const style = StyleSheet.create({
   socialButtons: {
     width: '90%',
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 10,
     flexDirection: 'row',
     justifyContent: "space-evenly",
     alignItems: 'center'
